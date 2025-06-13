@@ -1,0 +1,16 @@
+sudo: required 
+services:
+  -docker
+
+before_install:
+  - docker build -t lbert09/react-test -f ./client/Dockerfile.dev ./client
+
+
+scripts:
+  - docker run lbert09/react-test npm test -- --coverage
+
+after_success:
+ - docker build -t lbert09/multi-client ./client
+ - docker build -t lbert09/multi-nginx ./nginx
+ - docker build -t lbert09/multi-server ./server
+ - docker build -t lbert09/multi-worker ./worker
