@@ -1,4 +1,6 @@
-sudo: required 
+dist: focal
+sudo: required
+language: generic 
 services:
   -docker
 
