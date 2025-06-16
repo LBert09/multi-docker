@@ -21,7 +21,7 @@ after_success:
  - docker push lbert09/multi-nginx
  - docker push lbert09/multi-server
  - docker push lbert09/multi-worker
-
+#deploy on aws
 deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
